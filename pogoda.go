@@ -2,12 +2,15 @@ package main
 
 import (
 	"./mypkg"
+	"bufio"
 	"bytes"
 	"encoding/json"
 	"fmt"
 	"html/template"
 	"io/ioutil"
 	"os"
+	"regexp"
+	"strings"
 )
 
 type ViewData struct {
@@ -48,4 +51,38 @@ func main() {
 	result := html.String()
 
 	fmt.Println("\nHTML output result: \n\n", result)
+	fmt.Println(".................................................")
+	fmt.Println(MinifyHTML([]byte(result)))
+}
+
+func MinifyHTML(html []byte) string {
+	minifiedHTML := ""
+	scanner := bufio.NewScanner(bytes.NewReader(CleanHtml(html)))
+	for scanner.Scan() {
+		lineTrimmed := strings.TrimSpace(scanner.Text())
+		minifiedHTML += lineTrimmed
+		if len(lineTrimmed) > 0 {
+			minifiedHTML += " "
+		}
+	}
+	if err := scanner.Err(); err != nil {
+		panic(err)
+	}
+
+	minifiedHTML = CleanJsonBrackets(minifiedHTML)
+
+	return minifiedHTML
+}
+
+func CleanHtml(content []byte) []byte {
+	cleanComments := regexp.MustCompile(`<!--[^>]*-->`)
+	cleanSpaces := regexp.MustCompile(`>\s{1,}<`)
+	noComment := cleanComments.ReplaceAll(content, []byte(""))
+	return cleanSpaces.ReplaceAll(noComment, []byte("><"))
+}
+
+func CleanJsonBrackets(html string) string {
+	htmlClear := strings.ReplaceAll(html, " } <", "}<")
+	htmlClear = strings.ReplaceAll(htmlClear, " { ", "{")
+	return htmlClear
 }
