@@ -21,7 +21,7 @@ type ViewData struct {
 func main() {
 	jsonFile, err := os.Open("pogoda.json")
 	if err != nil {
-		fmt.Println(err)
+		checkError(err)
 	}
 
 	fmt.Println("Successfully Opened pogoda.json")
@@ -66,10 +66,15 @@ func MinifyHTML(html []byte) string {
 		}
 	}
 	if err := scanner.Err(); err != nil {
-		panic(err)
+		checkError(err)
 	}
 
 	minifiedHTML = CleanJsonBrackets(minifiedHTML)
+	f, er := os.Create("sample.txt")
+	checkError(er)
+	fmt.Println("Temp file name:", f.Name())
+	_, e := f.WriteString(minifiedHTML)
+	checkError(e)
 
 	return minifiedHTML
 }
@@ -85,4 +90,11 @@ func CleanJsonBrackets(html string) string {
 	htmlClear := strings.ReplaceAll(html, " } <", "}<")
 	htmlClear = strings.ReplaceAll(htmlClear, " { ", "{")
 	return htmlClear
+}
+
+func checkError(e error) {
+	if e != nil {
+		fmt.Println(e)
+		panic(e)
+	}
 }
