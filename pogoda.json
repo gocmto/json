@@ -1,0 +1,73 @@
+{
+  "now": 1587549575,
+  "now_dt": "2020-04-22T09:59:35.856Z",
+  "info": {
+    "lat": 43.5575,
+    "lon": 43.85083,
+    "url": "https://yandex.ru/pogoda/?lat=43.5575&lon=43.85083"
+  },
+  "fact": {
+    "temp": 7,
+    "feels_like": 5,
+    "icon": "ovc",
+    "condition": "overcast",
+    "wind_speed": 2,
+    "wind_gust": 3.6,
+    "wind_dir": "n",
+    "pressure_mm": 736,
+    "pressure_pa": 982,
+    "humidity": 76,
+    "daytime": "d",
+    "polar": false,
+    "season": "spring",
+    "obs_time": 1587548516
+  },
+  "forecast": {
+    "date": "2020-04-22",
+    "date_ts": 1587502800,
+    "week": 17,
+    "sunrise": "05:10",
+    "sunset": "18:56",
+    "moon_code": 7,
+    "moon_text": "decreasing-moon",
+    "parts": [{
+      "part_name": "evening",
+      "temp_min": 6,
+      "temp_max": 7,
+      "temp_avg": 7,
+      "feels_like": 4,
+      "icon": "ovc_-ra",
+      "condition": "overcast-and-light-rain",
+      "daytime": "n",
+      "polar": false,
+      "wind_speed": 2.5,
+      "wind_gust": 8.6,
+      "wind_dir": "sw",
+      "pressure_mm": 737,
+      "pressure_pa": 983,
+      "humidity": 79,
+      "prec_mm": 0.6,
+      "prec_period": 360,
+      "prec_prob": 80
+    }, {
+      "part_name": "night",
+      "temp_min": 6,
+      "temp_max": 6,
+      "temp_avg": 6,
+      "feels_like": 2,
+      "icon": "ovc",
+      "condition": "overcast",
+      "daytime": "n",
+      "polar": false,
+      "wind_speed": 2.6,
+      "wind_gust": 8,
+      "wind_dir": "sw",
+      "pressure_mm": 737,
+      "pressure_pa": 983,
+      "humidity": 75,
+      "prec_mm": 0,
+      "prec_period": 360,
+      "prec_prob": 0
+    }]
+  }
+}
