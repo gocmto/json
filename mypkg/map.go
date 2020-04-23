@@ -1,6 +1,6 @@
-package main
+package mypkg
 
-func getConfig(key string) string {
+func GetConfig(key string) string {
 	elements := map[string]string{
 		"place":       "Место",
 		"url":         "Подробный URL",
@@ -39,7 +39,7 @@ func getConfig(key string) string {
 	return elements[key]
 }
 
-func getCondition(key string) string {
+func GetCondition(key string) string {
 	elements := map[string]string{
 		"clear":                            "ясно",
 		"partly-cloudy":                    "малооблачно",
@@ -63,7 +63,7 @@ func getCondition(key string) string {
 	return elements[key]
 }
 
-func getWinDir(key string) string {
+func GetWinDir(key string) string {
 	elements := map[string]string{
 		"nw": "северо-западное",
 		"n":  "северное",
@@ -78,7 +78,7 @@ func getWinDir(key string) string {
 	return elements[key]
 }
 
-func getD(key string) string {
+func GetD(key string) string {
 	elements := map[string]string{
 		"d": "светлое время суток",
 		"n": "темное время суток",
@@ -86,7 +86,7 @@ func getD(key string) string {
 	return elements[key]
 }
 
-func getSeason(key string) string {
+func GetSeason(key string) string {
 	elements := map[string]string{
 		"summer": "лето",
 		"autumn": "осень",
@@ -96,7 +96,7 @@ func getSeason(key string) string {
 	return elements[key]
 }
 
-func getMoonCode(key string) string {
+func GetMoonCode(key string) string {
 	elements := map[string]string{
 		"0":  "полнолуние",
 		"1":  "убывающая Луна",
@@ -118,7 +118,7 @@ func getMoonCode(key string) string {
 	return elements[key]
 }
 
-func getPartName(key string) string {
+func GetPartName(key string) string {
 	elements := map[string]string{
 		"night":   "ночь",
 		"morning": "утро",
