@@ -1,13 +1,13 @@
-package main
+package mypkg
 
 // https://yandex.ru/dev/weather/doc/dg/concepts/forecast-info-docpage/
 
-type StructNow struct {
-	Now int
-}
-
-type StructNowDt struct {
-	NowDt string
+type StructWeather struct {
+	Now      int
+	NowDt    string
+	Info     StructInfo
+	Fact     StructFact
+	Forecast StructForecast
 }
 
 /**
