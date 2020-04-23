@@ -2,6 +2,7 @@ package main
 
 import (
 	"./mypkg"
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"html/template"
@@ -37,5 +38,14 @@ func main() {
 	}
 
 	tmpl, _ := template.ParseFiles("tmpl/index.html")
-	tmpl.Execute(os.Stdout, data)
+	//tmpl.Execute(os.Stdout, data)
+
+	var html bytes.Buffer
+	if err := tmpl.Execute(&html, data); err != nil {
+		fmt.Println(err)
+	}
+
+	result := html.String()
+
+	fmt.Println("\nHTML output result: \n\n", result)
 }
